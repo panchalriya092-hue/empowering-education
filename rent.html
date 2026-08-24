@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rent Books | Empowering Education</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+            <i class="fa-solid fa-graduation-cap text-primary me-2"></i>
+            Empowering Education
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="buy.html">Buy</a></li>
+                <li class="nav-item"><a class="nav-link" href="sell.html">Sell</a></li>
+                <li class="nav-item"><a class="nav-link" href="donate.html">Donate</a></li>
+            </ul>
+            <div class="d-flex gap-2">
+                <a href="login.html" class="btn btn-primary">Login</a>
+                <a href="register.html" class="btn btn-success">Register</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- RENT OUT FORM SECTION -->
+<section class="container mt-5 pt-5 rent-section">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card shadow-lg p-4">
+        <h2 class="text-center fw-bold mb-3">
+          <i class="fa-solid fa-book-bookmark text-warning"></i>
+          Rent Out Your Book
+        </h2>
+
+        <div class="alert alert-warning text-start mb-4">
+          <h5 class="fw-bold mb-2">
+            <i class="fa-solid fa-circle-info"></i> Why Rent Out?
+          </h5>
+          <ul class="mb-0">
+            <li>&#128176; Earn money from books you're not using</li>
+            <li>&#128218; Help fellow students save money</li>
+            <li>&#128260; Keep books in circulation</li>
+            <li>&#129309; Build trust in the student community</li>
+          </ul>
+        </div>
+
+        <form id="rentForm" novalidate>
+          <!-- Book Image -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Book Image</label>
+            <input type="file" class="form-control" id="bookImage" accept="image/*" required>
+          </div>
+
+          <!-- Book Name -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Book Name</label>
+            <input type="text" class="form-control" id="bookName" placeholder="Enter book name" required>
+          </div>
+
+          <!-- Author -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Author Name</label>
+            <input type="text" class="form-control" id="authorName" placeholder="Enter author name" required>
+          </div>
+
+          <!-- Category -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Book Category</label>
+            <select class="form-select" id="category" required>
+              <option value="">Select category</option>
+              <option value="engineering">Engineering</option>
+              <option value="medical">Medical</option>
+              <option value="computer">Computer/IT</option>
+              <option value="commerce">Commerce</option>
+              <option value="arts">Arts</option>
+              <option value="science">Science</option>
+              <option value="school">School</option>
+              <option value="college">College</option>
+              <option value="competitive">Competitive Exam</option>
+              <option value="college">Novel</option>
+              <option value="competitive">religious</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Custom Category -->
+          <div class="mb-3 d-none" id="customCategoryBox">
+            <label class="form-label fw-semibold">Custom Category</label>
+            <input type="text" class="form-control" id="customCategory" placeholder="Specify category">
+          </div>
+
+          <!-- Condition -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Book Condition</label>
+            <select class="form-select" id="condition" required>
+              <option value="">Select condition</option>
+              <option value="new">New</option>
+              <option value="like-new">Like New</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+            </select>
+          </div>
+
+          <!-- Rental Price -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Rental Price (&#8377;)</label>
+            <input type="number" class="form-control" id="rentalPrice" placeholder="Enter rental price" min="1" required>
+            <small class="text-muted">Price per rental period</small>
+          </div>
+
+          <!-- Rental Duration -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Rental Duration</label>
+            <select class="form-select" id="rentalDuration" required>
+              <option value="">Select duration</option>
+              <option value="7">7 Days</option>
+              <option value="15">15 Days</option>
+              <option value="30">30 Days</option>
+              <option value="60">60 Days</option>
+            </select>
+          </div>
+
+          <!-- Security Deposit -->
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Security Deposit (&#8377;)</label>
+            <input type="number" class="form-control" id="securityDeposit" placeholder="Enter security deposit" min="0" required>
+            <small class="text-muted">Refundable amount for book safety</small>
+          </div>
+
+          <!-- Submit -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-warning px-5">
+              <i class="fa-solid fa-bookmark"></i> List for Rent
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVAILABLE RENT BOOKS SECTION -->
+<section class="container mt-5 pt-5 rent-section">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold">
+      <i class="fa-solid fa-book-bookmark text-warning me-2"></i>
+      Available Rent Books
+    </h2>
+    <p class="text-muted">Affordable book rentals for students</p>
+  </div>
+
+  <!-- FILTER SECTION -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Category</label>
+      <select class="form-select" id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="engineering">Engineering</option>
+        <option value="medical">Medical</option>
+        <option value="computer">Computer/IT</option>
+        <option value="commerce">Commerce</option>
+        <option value="arts">Arts</option>
+        <option value="science">Science</option>
+        <option value="school">School</option>
+        <option value="college">College</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Condition</label>
+      <select class="form-select" id="conditionFilter">
+        <option value="">All Conditions</option>
+        <option value="new">New</option>
+        <option value="like-new">Like New</option>
+        <option value="good">Good</option>
+        <option value="fair">Fair</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Price Range</label>
+      <select class="form-select" id="priceFilter">
+        <option value="">All Prices</option>
+        <option value="0-50">&#8377;0 - &#8377;50</option>
+        <option value="51-100">&#8377;51 - &#8377;100</option>
+        <option value="101-200">&#8377;101 - &#8377;200</option>
+        <option value="201+">&#8377;201+</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Duration</label>
+      <select class="form-select" id="durationFilter">
+        <option value="">All Durations</option>
+        <option value="7">7 Days</option>
+        <option value="15">15 Days</option>
+        <option value="30">30 Days</option>
+        <option value="60">60 Days</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- BOOKS CONTAINER -->
+  <div class="row" id="rentBooksContainer"></div>
+
+  <!-- PAGINATION -->
+  <nav aria-label="Page navigation" class="mt-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </nav>
+</section>
+
+<!-- RENT FORM SUCCESS MODAL -->
+<div class="modal fade" id="rentFormSuccessModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header justify-content-center border-0">
+        <h3 class="modal-title fw-bold text-warning">&#127881; Book Listed!</h3>
+      </div>
+      <div class="modal-body py-4">
+        <i class="fa-solid fa-bookmark fa-4x text-warning mb-3"></i>
+        <h4 class="fw-semibold mb-3">Your Book is Now Available for Rent!</h4>
+        <p class="fs-5">Students can now rent your book.</p>
+        <div class="alert alert-warning mt-3">
+          <i class="fa-solid fa-check-circle me-2"></i>
+          You will be notified when someone requests to rent!
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center border-0">
+        <button class="btn btn-warning px-4" data-bs-dismiss="modal">Great!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RENT SUCCESS MODAL -->
+<div class="modal fade" id="rentSuccessModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header justify-content-center border-0">
+        <h4 class="modal-title fw-bold text-warning">Rental Request Sent!</h4>
+      </div>
+      <div class="modal-body py-4">
+        <i class="fa-solid fa-circle-check fa-4x text-warning mb-3"></i>
+        <p class="fs-5">Your rental request has been sent to the owner.</p>
+        <p class="text-muted">The owner will contact you soon to arrange the rental.</p>
+        <div class="alert alert-info mt-3">
+          <i class="fa-solid fa-info-circle me-2"></i>
+          Check your registered email for owner details
+        </div>
+      </div>
+      <div class="modal-footer justify-content-center border-0">
+        <button class="btn btn-warning px-4" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer bg-dark text-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <h5 class="fw-bold mb-3">Empowering Education</h5>
+                <p class="text-muted small">A collaborative platform connecting students through resource sharing and community support.</p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6 class="fw-bold mb-3">Quick Links</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                    <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
+                    <li class="mb-2"><a href="#" class="text-light text-decoration-none">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6 class="fw-bold mb-3">Resources</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="buy.html" class="text-light text-decoration-none">Buy Books</a></li>
+                    <li class="mb-2"><a href="sell.html" class="text-light text-decoration-none">Sell Books</a></li>
+                    <li class="mb-2"><a href="rent.html" class="text-light text-decoration-none">Rent Books</a></li>
+                    <li class="mb-2"><a href="donate.html" class="text-light text-decoration-none">Donate Books</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 mb-4">
+                <h6 class="fw-bold mb-3">Contact Information</h6>
+                <p class="small mb-2"><i class="fa-solid fa-envelope me-2"></i>support@empoweringeducation.com</p>
+                <p class="small mb-2"><i class="fa-solid fa-phone me-2"></i>+91 90000 00000</p>
+                <p class="small"><i class="fa-solid fa-location-dot me-2"></i>India</p>
+            </div>
+        </div>
+        <hr class="border-secondary my-4">
+        <div class="text-center small text-muted">
+            @ 2026 Empowering Education. All rights reserved.<br>
+            Developed with 💝; by Students, For Students
+        </div>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="common.js"></script>
+<script src="rent.js"></script>
+
+</body>
+</html>
